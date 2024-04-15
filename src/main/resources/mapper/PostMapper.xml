@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.PostMapper">
+    <update id="update">
+        UPDATE sky_take_out.post
+        <set>
+            <if test="photoPath != null">photo_path = #{photoPath},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="content != null">content = #{content},</if>
+            <if test="content != null">content = #{content},</if>
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="findById" resultType="com.sky.entity.Post">
+        SELECT * FROM sky_take_out.post WHERE user_id = #{userId}
+    </select>
+</mapper>
